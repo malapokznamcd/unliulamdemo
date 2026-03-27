@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meaty Spaghetti | Knorr PH Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Knorr</div>
+    
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+            <!-- Results will be populated by JavaScript -->
+        </div>
+    </div>
+    
+    <nav>
+        <a href="#">RECIPES</a>
+        <a href="#">PRODUCTS</a>
+        <a href="#">PURPOSE</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Meaty Spaghetti</h1>
+        <p id="recipe-description">This simple dish will surely be a hit with the family. It combines the flavors of ground pork with the rich flavor of tomatoes and cheese.</p>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">30 MINS</span>
+            <span class="stat-label">Cooking Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>400 grams spaghetti</li>
+                <li>2 tbsp oil</li>
+                <li>1 pc onion</li>
+                <li>5 cloves garlic</li>
+                <li>½ kg ground pork</li>
+                <li>2 pcs Knorr pork or beef broth cubes</li>
+                <li>2 tbsp tomato paste</li>
+                <li>500 grams tomato sauce</li>
+                <li>½ cup sugar</li>
+                <li>1 cup water</li>
+                <li>Grated cheese for topping</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Chicken</span>
+                    <span class="filter-tag">Pork</span>
+                    <span class="filter-tag">Beef</span>
+                    <span class="filter-tag">Quick & Easy</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">First, cook the spaghetti noodles according to package directions. Drain well and set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Next, get a pan and make it nice and hot over medium heat. Sauté onions and garlic until light brown. Add ground pork and cook until the color changes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add Knorr Pork Cubes, stir well to dissolve before adding the tomato paste and tomato sauce. Sauté for 2 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add sugar, pepper and water and simmer for 15-20 minutes until the sauce has thickened.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Pour the sauce over your cooked spaghetti noodles and sprinkle with plenty of grated cheese. Enjoy!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+        <button class="btn-outline">Write a Review</button>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">1 Review</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Liza M. <span class="review-date">January 15, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This is my go-to recipe for Sunday lunch! The Filipino-style sweetness is perfect, and using the Knorr cubes makes it so much more flavorful than just using salt.</p>
+    </div>
+</div>
+
+<div class="widgets-section">
+    <h2 class="section-title">More Recipes to Try</h2>
+    <div class="recipe-grid">
+        <div class="recipe-card">
+            <div class="card-img">Sinigang Image</div>
+            <div class="card-content">
+                <span class="tag">60 MINS</span>
+                <h3>Sinigang na Bangus</h3>
+                <p>A classic sour soup perfect for any weather.</p>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="card-img">Pork Adobo Image</div>
+            <div class="card-content">
+                <span class="tag">45 MINS</span>
+                <h3>Classic Pork Adobo</h3>
+                <p>The ultimate Filipino comfort food.</p>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="card-img">Pancit Image</div>
+            <div class="card-content">
+                <span class="tag">30 MINS</span>
+                <h3>Pancit Bihon</h3>
+                <p>A festive noodle dish for special occasions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="newsletter-bar">
+    <h3>Join the Knorr Nutri-Sarap Community</h3>
+    <p>Get exclusive recipes and cooking tips straight to your inbox.</p>
+    <button class="btn-join">I'm in!</button>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="#">All Recipes</a>
+            <a href="#">Meal Plans</a>
+            <a href="#">Product Tips</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQs</a>
+            <a href="#">Sitemap</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unilever Philippines | This is a demonstration clone.
+    </div>
+</footer>
+
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

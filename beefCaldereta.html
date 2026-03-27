@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beef Caldereta | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/beefCaldereta.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+
+        .side-recipes {
+            position: fixed;
+            top: 100px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+            transition: position 0.3s ease, top 0.3s ease;
+        }
+        .side-left {
+            left: 20px;
+        }
+        .side-right {
+            right: 20px;
+        }
+
+        .recipe-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+        .recipe-card img.food-photo {
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
+            object-fit: cover;
+        }
+        .recipe-card .card-content {
+            padding: 10px;
+        }
+        .recipe-card .tag {
+            font-size: 12px;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .recipe-card h3 {
+            font-size: 16px;
+            margin: 8px 0 4px;
+            color: #333;
+        }
+        .recipe-card p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        @media (max-width: 1100px) {
+            .side-recipes {
+                display: none;
+            }
+        }
+
+        .side-recipes.stop-sticky {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="side-recipes side-left">
+    <div class="recipe-card" onclick="loadRecipe(9)">
+        <div class="card-img"><img class="food-photo" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+        <div class="card-content">
+            <span class="tag">30 MINS</span>
+            <h3>Chicken Sotanghon Soup with Patola</h3>
+            <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+        </div>
+    </div>
+    <div class="recipe-card" onclick="loadRecipe(10)">
+        <div class="card-img"><img class="food-photo" src="assets/pininyahangManok.jpg" alt="Creamy Pininyahang Manok"></div>
+        <div class="card-content">
+            <span class="tag">50 MINS</span>
+            <h3>Creamy Pininyahang Manok</h3>
+            <p>Creamy chicken stew with coconut milk and sweet pineapple.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="side-recipes side-right">
+    <div class="recipe-card" onclick="loadRecipe(11)">
+        <div class="card-img"><img class="food-photo" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+        <div class="card-content">
+            <span class="tag">40 MINS</span>
+            <h3>Filipino Chicken Adobo</h3>
+            <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+        </div>
+    </div>
+    <div class="recipe-card" onclick="loadRecipe(12)">
+        <div class="card-img"><img class="food-photo" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+        <div class="card-content">
+            <span class="tag">40 MINS</span>
+            <h3>Kinamatisang Manok</h3>
+            <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+        </div>
+    </div>
+</div>
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Beef Caldereta</h1>
+        <p id="recipe-description">A rich, savory, and festive Filipino beef stew. This tomato-based dish features tender beef short ribs <span class="wiki-keyword">Simmered <span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span>
+        <p>to perfection with liver spread, cheese, and vegetables for a complex, hearty flavor.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/beefCaldereta.jpg" alt="Rich Beef Caldereta" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Tomato-based beef stew with liver spread and melted cheese.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">2 HOURS</span>
+            <span class="stat-label">Cooking Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Medium</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>4 lbs beef short ribs</li>
+                <li>14 oz tomato sauce</li>
+                <li><span class="wiki-keyword">1 cup red wine<span class="wiki-tooltip" style="left: 100%;">Beef broth mixed with a splash of balsamic vinegar or 100% cranberry juice for acidity and depth.</span> </span>
+                </li>
+                <li>1/2 cup liver spread</li>
+                <li>2 large potatoes, cubed</li>
+                <li>1 large carrot, cubed</li>
+                <li>1 cup manzanilla olives</li>
+                <li>2 bell peppers, sliced</li>
+                <li>1 head garlic, chopped</li>
+                <li>2 large onions, chopped</li>
+                <li>1 Knorr Beef Cube</li>
+                <li>3 tbsp soy sauce</li>
+                <li>1/4 cup extra virgin olive oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Beef</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Heat oil in a pot. <span class="wiki-keyword">Fry<span class="wiki-tooltip">To cook food in hot fat or oil, typically until it reaches a crisp, golden-brown texture.</span> </span> potatoes and carrots until the outer parts turn light brown, then remove and set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text"><span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic, onion, and thyme. Add beef short ribs and cook until the meat surfaces are browned.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Pour in tomato sauce, red wine, soy sauce, and water. Add the Knorr Beef Cube. Cover and simmer on low heat until beef is <span class="wiki-keyword">tender <span class="wiki-tooltip">A state where food is soft and easily broken, chewed, or cut, often achieved through slow cooking or marinating.</span></span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add liver spread and bell peppers. Cook for 3 minutes to incorporate the rich flavors.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the fried potatoes, carrots, and olives. Finish by stirring in cheddar cheese. Season with salt and pepper to taste. Enjoy!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #e74c3c;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">A Taste of Tradition</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Beef Caldereta</strong> (or Kaldereta) is a beloved Filipino main course traditionally served at fiestas and special occasions. Derived from the Spanish word <em>caldera</em> (cauldron), this dish was originally made with goat meat. Today, beef is the most popular choice, prized for its ability to become "fall-off-the-bone" tender after hours of simmering.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> The Liver Spread Secret</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">What sets Caldereta apart from other tomato stews (like Afritada or Menudo) is the addition of liver spread, which gives the sauce its signature thick consistency and deep, earthy flavor.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> Spanish Influence</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The use of ingredients like olives, bell peppers, and red wine highlights the strong Spanish influence on Filipino cuisine during the colonial era.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> Creamy Cheese</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Modern Filipino Caldereta often includes grated cheese melted directly into the sauce, providing a creamy contrast to the acidity of the tomatoes.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">12 Reviews</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 12</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Maria C. <span class="review-date">June 5, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This Beef Caldereta is incredible! The meat was so tender it fell off the bone, and the liver spread makes the sauce so rich. Definitely a fiesta favorite!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

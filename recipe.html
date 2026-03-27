@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unli-Ulam | Pinoy Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+</head>
+
+<style>
+    :root {
+    --brand-red: #E3001B;
+    --brand-green: #008244;
+    --text-dark: #333;
+    --bg-light: #f4f4f4;
+    --white: #F9F9FB;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+header {
+    background-color: var(--white);
+    padding: 15px 10%;
+    border-bottom: 4px solid var(--brand-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/backgroundImageOne.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+.logo img {
+    height: 50px; /* Adjust this value until it looks right */
+    width: auto;   /* Keeps the aspect ratio perfect */
+    display: block; 
+}
+
+/* SEARCH BOX */
+.search-container { position: relative; flex-grow: 1; max-width: 400px; margin: 0 30px; }
+.search-wrapper { display: flex; align-items: center; background: #eee; border-radius: 25px; padding: 8px 15px; }
+#recipe-search { border: none; background: transparent; outline: none; width: 100%; padding-left: 10px; }
+
+/* HERO BANNER */
+.hero-banner {
+    
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px;
+}
+.hero-banner h1 { font-size: 48px; margin: 0; }
+
+/* RECIPE GRID */
+.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.grid-title { border-bottom: 2px solid var(--brand-red); display: inline-block; padding-bottom: 5px; margin-bottom: 30px; }
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+    min-width: 250px;
+    max-width: 300px;
+    margin: 0 10px;
+    flex-shrink: 0;
+    flex: 0 0 250px
+}
+
+.carousel-container {
+    position: relative;
+    overflow: visible;
+}
+.carousel-track {
+    /*display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;*/
+    display: flex;
+    gap: 25px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.carousel-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+.food-photo {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+.recipe-card:hover { transform: translateY(-8px); }
+.card-img { height: 180px; background: #e9ecef; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+.card-content { padding: 20px; }
+.card-content h3 { margin: 10px 0; color: var(--brand-green); }
+.tag { background: #eee; padding: 4px 8px; font-size: 11px; border-radius: 4px; font-weight: bold; }
+
+footer { text-align: center; padding: 40px; color: #777; font-size: 13px; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+    .hero-banner h1 { font-size: 32px; }
+}
+@media (max-width: 768px) {
+  .recipe-card  {
+    min-width: 50%;
+    margin: 0 auto;
+  }
+
+
+
+</style>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input type="text" id="recipe-search" placeholder="Search for ulam..." autocomplete="off">
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+        <div class="container">
+    <h2 class="grid-title">Chicken</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+        <div class="carousel-track">
+            <div class="recipe-card" onclick="loadRecipe(5)">
+                <div class="card-img"><img class= "food-photo" src="assets/tinola.jpg" alt="Hearty Chicken Tinola" ></div>
+                <div class="card-content">
+                    <span class="tag">60 MINS</span>
+                    <h3>Chicken Tinola</h3>
+                    <p>A soul-warming Filipino ginger chicken broth.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(9)">
+                <div class="card-img"><img class= "food-photo" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Chicken Sotanghon Soup with Patola</h3>
+                    <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(10)">
+                <div class="card-img"><img class= "food-photo" src="assets/pininyahangManok.jpg" alt="Creamy Pininyahang Manok" ></div>
+                <div class="card-content">
+                    <span class="tag">50 MINS</span>
+                    <h3>Creamy Pininyahang Manok</h3>
+                    <p>Creamy chicken stew with coconut milk and sweet pineapple.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(11)">
+                <div class="card-img"><img class= "food-photo" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+                <div class="card-content">
+                    <span class="tag">40 MINS</span>
+                    <h3>Filipino Chicken Adobo</h3>
+                    <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(12)">
+                <div class="card-img"><img class= "food-photo" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+                <div class="card-content">
+                    <span class="tag">40 MINS</span>
+                    <h3>kinamatisang Manok</h3>
+                    <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2 class="grid-title">Pork and Beef</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+        <div class="carousel-track">
+            <div class="recipe-card" onclick="loadRecipe(3)">
+                <div class="card-img"><img class= "food-photo" src="assets/porkAdobo.jpg" alt="Pork Adobo"></div>
+                <div class="card-content">
+                    <span class="tag">1 HR</span>
+                    <h3>Pork Adobo</h3>
+                    <p>The unofficial national dish of the Philippines.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(13)">
+                <div class="card-img"><img class= "food-photo" src="assets/porkNilaga.jpg" alt="Pork Nilaga"></div>
+                <div class="card-content">
+                    <span class="tag">1 HR 5 MINS</span>
+                    <h3>Pork Nilaga</h3>
+                    <p>Hearty pork stew with vegetables in a clear, savory broth.</p>
+                </div>
+            </div>
+            
+            <div class="recipe-card" onclick="loadRecipe(14)">
+                <div class="card-img"><img class= "food-photo" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(15)">
+                <div class="card-img"><img class= "food-photo" src="assets/porkCaldereta.jpg" alt="Cheesy Pork Caldereta"></div>
+                <div class="card-content">
+                    <span class="tag">1 HR 10 MINS</span>
+                    <h3>Cheesy Pork Caldereta</h3>
+                    <p>Rich tomato pork stew thickened with liver spread and melted cheese.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(16)">
+                <div class="card-img"><img class= "food-photo" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(6)">
+                <div class="card-img"><img class= "food-photo" src="assets/beefCaldereta.jpg" alt="Beef Caldereta"></div>
+                <div class="card-content">
+                    <span class="tag">2 HR</span>
+                    <h3>Beef Caldereta</h3>
+                    <p>A rich beef stew in a savory tomato and liver sauce, topped with cheese and vegetables.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(8)">
+                <div class="card-img"><img class= "food-photo" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h2 class="grid-title">Fish</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+        <div class="carousel-track">
+            <div class="recipe-card" onclick="loadRecipe(17)">
+                <div class="card-img"><img class= "food-photo" src="assets/sarciado.jpg" alt="sarciado"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Fish Sarciado</h3>
+                    <p>Fried fish simmered in a savory tomato and egg sauce.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(2)">
+                <div class="card-img"><img class= "food-photo" src="assets/sinigang.jpg" alt="Sinigang na Bangus"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Sinigang na Bangus</h3>
+                    <p>Authentic sour soup with fresh vegetables.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(18)">
+                <div class="card-img"><img class= "food-photo" src="assets/paksiw.jpg" alt="Paksiw na Bangus"></div>
+                <div class="card-content">
+                    <span class="tag">35 MINS</span>
+                    <h3>Paksiw na Bangus</h3>
+                    <p>Milkfish stewed in a tangy vinegar and ginger broth.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(19)">
+                <div class="card-img"><img class= "food-photo" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(20)">
+                <div class="card-img"><img class= "food-photo" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h2 class="grid-title">Vegetables</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+        <div class="carousel-track">
+            <div class="recipe-card" onclick="loadRecipe(5)">
+                <div class="card-img"><img class= "food-photo" src="assets/tinola.jpg" alt="Hearty Chicken Tinola"></div>
+                <div class="card-content">
+                    <span class="tag">60 MINS</span>
+                    <h3>Chicken Tinola</h3>
+                    <p>A soul-warming Filipino ginger chicken broth.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(9)">
+                <div class="card-img"><img class= "food-photo" src="assets/chickenSotanghon.jpg" alt="SChicken Sotanghon"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Chicken Sotanghon Soup with Patola</h3>
+                    <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(10)">
+                <div class="card-img"><img class= "food-photo" src="assets/pininyahangManok.jpg" alt="Creamy Pininyahang Manok"></div>
+                <div class="card-content">
+                    <span class="tag">50 MINS</span>
+                    <h3>Creamy Pininyahang Manok</h3>
+                    <p>Creamy chicken stew with coconut milk and sweet pineapple.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(19)">
+                <div class="card-img"><img class= "food-photo" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+            <div class="recipe-card" onclick="loadRecipe(20)">
+                <div class="card-img"><img class= "food-photo" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2 class="grid-title">Noodles</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+        <div class="carousel-track">
+            <div class="recipe-card" onclick="loadRecipe(1)">
+
+            <div class="card-img">
+                <img class="imageSpag" src="assets/spaghetti.jpg" alt="Meaty Spaghetti" style="width: -webkit-fill-available;height: -webkit-fill-available;">
+            </div>
+
+            <div class="card-content">
+
+                <span class="tag">30 MINS</span>
+
+                <h3>Pinoy Spaghetti</h3>
+
+                <p>The classic sweet-style Pinoy spaghetti.</p>
+
+            </div>
+
+        </div>
+
+        <div class="recipe-card" onclick="loadRecipe(4)">
+                <div class="card-img"><img class= "food-photo" src="assets/pancitBihon.jpg" alt="Pancit Bihon"></div>
+                <div class="card-content">
+                    <span class="tag">40 MINS</span>
+                    <h3>Pancit Bihon</h3>
+                    <p>Perfect for long life and celebrations.</p>
+                </div>
+            </div>
+
+        <div class="recipe-card" onclick="loadRecipe(20)">
+                <div class="card-img"><img class= "food-photo" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+
+        <div class="recipe-card" onclick="loadRecipe(9)">
+                <div class="card-img"><img class= "food-photo" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Chicken Sotanghon Soup with Patola</h3>
+                    <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+                </div>
+            </div>
+
+        <div class="recipe-card" onclick="loadRecipe(21)">
+                <div class="card-img"><img class= "food-photo" src="assets/palabok.jpg" alt="Easy Palabok"></div>
+                <div class="card-content">
+                    <span class="tag">30 MINS</span>
+                    <h3>Easy Palabok</h3>
+                    <p>Rice noodles smothered in a thick, savory shrimp sauce and loaded with smoky toppings.</p>
+                </div>
+            </div>
+                
+        </div>
+        <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+    </div>
+</div>
+
+
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+            <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+
+</body>
+</html>

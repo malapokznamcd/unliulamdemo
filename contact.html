@@ -1,0 +1,245 @@
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | TechBoys</title>
+  <link rel="icon" href="assets/logo2.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --knorr-red: #E3001B;
+      --knorr-green: #008244;
+      --text-dark: #333;
+      --bg-light: #f4f4f4;
+      --white: #F9F9FB;
+      --footer-bg: #222;
+    }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/ucc.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+
+
+    header {
+      background-color: var(--white);
+      padding: 15px 10%;
+      border-bottom: 4px solid var(--knorr-green);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    nav a:hover {
+      color: var(--knorr-green);
+    }
+    .contact-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+.contact-container h1 {
+  color: var(--knorr-red);
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+.contact-container p {
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 15px;
+}
+.contact-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 330px;
+  margin: 15px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+  text-align: left;
+}
+.contact-name {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--knorr-red);
+  display: inline-block;
+  padding-bottom: 3px;
+}
+.contact-links p {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.contact-links span {
+  font-weight: 700;
+  color: var(--knorr-red);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+}
+.contact-links a {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-links a:hover {
+  color: var(--knorr-green);
+}
+
+.contact-section .contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 10px;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+  <section class="contact-container">
+    <h1>Contact TechBoys</h1>
+    <p>We’d love to hear from you! Send us a message below.</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-container">
+        <div class="contact-card">
+            <h3 class="contact-name">McDave I. Calunsag</h3>
+            <div class="contact-links">
+                <p><span>Facebook:</span> McDave Calunsag</p>
+                <p><span>Gmail:</span> mcdave@gmail.com</p>
+                <p><span>Contact:</span> 09763225798</p>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <h3 class="contact-name">John Roland Delacasa</h3>
+            <div class="contact-links">
+                <p><span>Facebook:</span> John Roland Delacasa</p>
+                <p><span>Gmail:</span> johnrolanddelacasa@gmail.com</p>
+                <p><span>Contact:</span> 09207799841</p>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <h3 class="contact-name">Victor Glenn Jusay</h3>
+            <div class="contact-links">
+                <p><span>Facebook:</span>Glēn Vîçtør Jūsây II</p>
+                <p><span>Gmail:</span> jusayglenvictor8@gmail.com </p>
+                <p><span>Contact:</span> 09998204641</p>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <h3 class="contact-name">Keem Rae Manese</h3>
+            <div class="contact-links">
+                <p><span>Facebook:</span> Keem Rae Manese</p>
+                <p><span>Gmail:</span> manesekeemrae@gmail.com</p>
+                <p><span>Contact:</span> 09079943741</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+</footer>
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

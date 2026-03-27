@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginisang Munggo | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/ginisangMunggo.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(17)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sarciado.jpg" alt="sarciado"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Fish Sarciado</h3>
+                    <p>Fried fish simmered in a savory tomato and egg sauce.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(19)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content1">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(2)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sinigang.jpg" alt="Sinigang na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Sinigang na Bangus</h3>
+                    <p>Authentic sour soup with fresh vegetables.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(20)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content1">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+</div>  
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Ginisang Munggo</h1>
+        <p id="recipe-description">A comforting and nutritious Filipino mung bean stew. This dish features savory sautéed aromatics, tender mung beans, and leafy greens, often topped with crispy chicharon for an added crunch.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/ginisangMunggo.jpg" alt="Comforting Ginisang Munggo" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Thick and creamy mung bean soup with pork and spinach.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1 HR 20 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">4-6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>1 ½ cups Mung beans (Munggo)</li>
+                <li>½ lb pork, thinly sliced</li>
+                <li>8 pieces medium shrimp (optional)</li>
+                <li>1 medium onion, chopped</li>
+                <li>1 medium tomato, chopped</li>
+                <li>1 tbsp garlic, minced</li>
+                <li>2 cups spinach or malunggay leaves</li>
+                <li>½ cup crushed pork rind (chicharon)</li>
+                <li>2 tbsp fish sauce (patis)</li>
+                <li>1 Knorr beef or pork cube</li>
+                <li>24 oz water (for boiling beans)</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Vegetable</span>
+
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">In a pot, combine mung beans and water. Bring to a boil and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 35 to 50 minutes until the beans are soft and the skins start to burst.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">In a separate large pan, <span class="wiki-keyword">sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic, onion, and tomato until softened. Add the pork and cook for 5 minutes or until light brown.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Stir in the beef/pork cube and fish sauce. Add the shrimp (if using) and cook for another 2 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Pour the cooked mung beans (including the water) into the pan with the sautéed meat. Simmer for 10 minutes, adding more water if it becomes too thick.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the spinach and crushed chicharon. Cook for 2 more minutes. Season with salt and pepper to taste. Serve hot with rice!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #2ecc71;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">Friday's Favorite</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            In the Philippines, <strong>Ginisang Munggo</strong> is famously known as the "Friday dish." While the origins of this tradition are debated—ranging from Catholic practices of abstaining from meat on Fridays to it being a convenient end-of-the-week budget meal—it remains a staple in almost every Filipino household.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;"> The Chicharon Crunch</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Adding crushed pork rinds (chicharon) at the very end provides a savory contrast to the creamy, soft texture of the beans.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;"> Nutritional Powerhouse</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Mung beans are packed with protein, fiber, and vitamins. Adding malunggay (moringa) or spinach makes this one of the healthiest Filipino stews.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;"> Tinapa Variation</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Many families prefer using flaked <em>tinapa</em> (smoked fish) instead of pork for a deeper, smokier flavor profile that pairs perfectly with the earthy beans.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">4.9</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">24 Reviews</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 95%;"></div></div> 22</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 5%;"></div></div> 2</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Liza M. <span class="review-date">February 20, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>Perfect for lunch! I added some tinapa flakes and the flavor was just like my grandmother's. The chicharon on top is a must!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

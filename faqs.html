@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/backgroundImageOne.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px);
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        footer{
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 13px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+        .faq-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .faq-container h1 {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            color: #e74c3c;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-question.active::after {
+            content: '–';
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .faq-answer.open {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+        <div class="faq-question">What is Unli-Ulam?</div>
+        <div class="faq-answer">Unli-Ulam is a Filipino food website that celebrates the spirit of home-cooked meals. We feature authentic recipes, cooking guides, and food trivia that highlight the rich and diverse flavors of Filipino cuisine.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Are your recipes beginner-friendly?</div>
+        <div class="faq-answer">Absolutely! Each recipe includes clear instructions and accessible ingredients. We aim to make cooking enjoyable for everyone—whether you're a first-time cook or a seasoned foodie.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Can I submit my own recipe?</div>
+        <div class="faq-answer">Yes! We love featuring community favorites. You can send your recipe ideas through our <a href="contact.html" style="color:#e74c3c; text-decoration:none;">Contact Us</a> page, and our team will review them for publication.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Do your recipes use locally available ingredients?</div>
+        <div class="faq-answer">Most of our recipes use common ingredients you can easily find in local markets or groceries. We also provide substitutes for harder-to-find ingredients to help you adapt based on what you have available.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">How can I stay updated with new recipes?</div>
+        <div class="faq-answer">You can follow us on Facebook, Instagram, or YouTube for the latest recipes and cooking inspirations. Links are available in the footer below.</div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script>
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+        q.addEventListener('click', () => {
+            q.classList.toggle('active');
+            const answer = q.nextElementSibling;
+            answer.classList.toggle('open');
+        });
+    });
+</script>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

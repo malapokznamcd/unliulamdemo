@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unli-Ulam | Pinoy Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+</head>
+
+<style>
+    :root {
+    --brand-red: #E3001B;
+    --brand-green: #008244;
+    --text-dark: #333;
+    --bg-light: #f4f4f4;
+    --white: #F9F9FB;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+header {
+    background-color: var(--white);
+    padding: 15px 10%;
+    border-bottom: 4px solid var(--brand-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/backgroundImageOne.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+.logo img {
+    height: 50px; 
+    width: auto;   
+    display: block; 
+}
+
+/* SEARCH BOX */
+.search-container { position: relative; flex-grow: 1; max-width: 400px; margin: 0 30px; }
+.search-wrapper { display: flex; align-items: center; background: #eee; border-radius: 25px; padding: 8px 15px; }
+#recipe-search { border: none; background: transparent; outline: none; width: 100%; padding-left: 10px; }
+
+/* HERO BANNER */
+.hero-banner {
+    
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px;
+}
+.hero-banner h1 { font-size: 48px; margin: 0; }
+
+/* RECIPE GRID */
+.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.grid-title { border-bottom: 2px solid var(--brand-red); display: inline-block; padding-bottom: 5px; margin-bottom: 30px; }
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.recipe-card:hover { transform: translateY(-8px); }
+.card-img { height: 180px; background: #e9ecef; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+.card-content { padding: 20px; }
+.card-content h3 { margin: 10px 0; color: var(--brand-green); }
+.tag { background: #eee; padding: 4px 8px; font-size: 11px; border-radius: 4px; font-weight: bold; }
+
+footer { text-align: center; padding: 40px; color: #777; font-size: 13px; }
+
+@media (max-width: 50%) {
+    header { flex-direction: column; gap: 15px; }
+    .hero-banner h1 { font-size: 32px; }
+}
+
+</style>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input type="text" id="recipe-search" placeholder="Search for ulam..." autocomplete="off">
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<section class="hero-banner">
+    <h1>Anong Ulam Natin?</h1>
+    <p>Discover unlimited Filipino recipes for your everyday meals.</p>
+</section>
+
+        <div class="container">
+            <h2 class="grid-title">Featured Recipes</h2>
+            <div class="recipe-grid">
+
+        <div class="recipe-card" onclick="loadRecipe(1)">
+
+            <div class="card-img">
+                <img class="imageSpag" src="assets/spaghetti.jpg" alt="Pinoy Spaghetti" style="width: -webkit-fill-available;height: -webkit-fill-available;">
+            </div>
+
+            <div class="card-content">
+
+                <span class="tag">30 MINS</span>
+
+                <h3>Pinoy Spaghetti</h3>
+
+                <p>The classic sweet-style Pinoy spaghetti.</p>
+
+            </div>
+
+        </div>
+
+        <div class="recipe-card" onclick="loadRecipe(2)">
+            <div class="card-img">
+                <img class="imageSpag" src="assets/sinigang.jpg" alt="Sinigang" style="width: -webkit-fill-available;height: -webkit-fill-available;">
+            </div>
+            <div class="card-content">
+                <span class="tag">60 MINS</span>
+                <h3>Sinigang na Bangus</h3>
+                <p>Authentic sour soup with fresh vegetables.</p>
+            </div>
+        </div>
+
+        <div class="recipe-card" onclick="loadRecipe(3)">
+            <div class="card-img">
+                <img class="imageSpag" src="assets/porkAdobo.jpg" alt="Pork Adobo" style="width: -webkit-fill-available;height: -webkit-fill-available;">
+            </div>
+            <div class="card-content">
+                <span class="tag">45 MINS</span>
+                <h3>Pork Adobo</h3>
+                <p>The unofficial national dish of the Philippines.</p>
+            </div>
+        </div>
+
+        <div class="recipe-card" onclick="loadRecipe(4)">
+            <div class="card-img">
+                <img class="imageSpag" src="assets/pancitBihon.jpg" alt="Pancit Bihon" style="width: -webkit-fill-available;height: -webkit-fill-available;">
+            </div>
+            <div class="card-content">
+                <span class="tag">40 MINS</span>
+                <h3>Pancit Bihon</h3>
+                <p>Perfect for long life and celebrations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+            <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

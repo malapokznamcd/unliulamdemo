@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Sarciado | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/sarciado.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(15)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkCaldereta.jpg" alt="Cheesy Pork Caldereta"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 10 MINS</span>
+                    <h3>Cheesy Pork Caldereta</h3>
+                    <p>Rich tomato pork stew thickened with liver spread and melted cheese.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(12)">
+        <div class="card-img1"><img class="food-photo1" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+        <div class="card-content1">
+            <span class="tag">40 MINS</span>
+            <h3>Kinamatisang Manok</h3>
+            <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+        </div>
+    </div>
+</div> 
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Fish Sarciado</h1>
+        <p id="recipe-description">A comforting Filipino classic made by simmering crispy fried fish in a vibrant sauce of sautéed tomatoes, onions, and garlic. The addition of beaten eggs creates a soft, silky texture that beautifully coats the fish, turning a simple fry into a gourmet meal.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/sarciado.jpg" alt="Fish Sarciado" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Crispy fried fish perfectly smothered in a rich tomato and egg sauce.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">30 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">2 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>1 whole fish (Tilapia, Bangus, or Galunggong)</li>
+                <li>2 eggs, beaten</li>
+                <li>3 tomatoes, diced</li>
+                <li>1 onion, chopped</li>
+                <li>6 cloves garlic, minced</li>
+                <li>1 bunch green onions, chopped</li>
+                <li>1 1/4 cups water</li>
+                <li>3/4 cup cooking oil (for frying)</li>
+                <li>4g Maggi Magic Sarap</li>
+                <li>Fish sauce and black pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Fish</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Rub Magic Sarap on the cleaned fish. <span class="wiki-keyword">Fry<span class="wiki-tooltip">To cook food in hot fat or oil, typically until it reaches a crisp, golden-brown texture.</span> </span> both sides in hot oil until golden brown and crispy. Remove fish and set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Using 3 tablespoons of the remaining oil, sauté garlic until light brown. Add onions and tomatoes; cook until softened.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Season with pepper and fish sauce. Pour in water and bring to a boil. <span class="wiki-keyword">Simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 3 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add green onions and pour in the beaten eggs. Quickly stir to distribute and cook for 2 minutes until set but soft.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Gently return the fried fish to the pan. <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 2-3 minutes to let it soak up the sauce. Serve hot with rice!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f0f4f8; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #2980b9;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #3498db; display: inline-block; padding-bottom: 5px;">The Art of the Sarsa</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            The term Sarciado is derived from the Spanish word salsa, which means sauce. In Filipino households, this dish is the gold standard for repurposing leftover fried fish. By creating a fresh tomato and egg base, yesterday's dry fish is transformed into a moist, flavorful, and revitalized meal.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">Tomato Base</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The acidity of the tomatoes balances the oiliness of the fried fish, while the natural sugars provide a subtle sweetness to the gravy.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">Velvety Texture</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The key to a perfect Sarciado is the eggs. They should be stirred in quickly so they form soft ribbons rather than large, hard chunks.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">Fish Variety</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">While Tilapia is popular, this recipe works with any firm-fleshed fish like Bangus (milkfish) or Galunggong (mackerel scad).</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Vanjo M. <span class="review-date">August 5, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This is the kind of meal that proves you do not need much to make something truly delicious. The soft eggs mixed with tomatoes and garlic create a rich sauce that clings perfectly to the crispy fish. Great with hot rice!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

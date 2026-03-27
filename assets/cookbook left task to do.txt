@@ -1,0 +1,97 @@
+cookbook left task to do
+Wikipedia hover /
+glossary / 
+contact us page /
+faqs page/
+reference page
+about us page /
+sticky banner
+alternatives /
+filter recipes by remove the function /
+purpose page 
+
+<span class="wiki-keyword">1 cup red wine<span class="wiki-tooltip" style="left: 100%;">Beef broth mixed with a splash of balsamic vinegar or 100% cranberry juice for acidity and depth.</span> </span>
+
+<span class="wiki-keyword">simmered<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span>
+
+<span class="wiki-keyword">Clumping <span class="wiki-tooltip">The formation of dry, unmixed lumps in a liquid, often caused by adding powders too quickly or into a liquid that is too hot.</span> </span>
+
+<span class="wiki-keyword">Steamed<span class="wiki-tooltip">Cooked using the heat of water vapor, typically in a sealed container or over a boiling pot, to maintain moisture and nutrients.</span> </span>
+
+<span class="wiki-keyword">Marinate<span class="wiki-tooltip">To soak food in a seasoned liquid (acid, oil, and aromatics) to tenderize the texture and infuse deep flavor.</span> </span>
+
+<span class="wiki-keyword">Pan-fry<span class="wiki-tooltip">To cook food in a skillet with a moderate amount of fat over medium-high heat, creating a crisp, browned crust.</span></span>
+
+<span class="wiki-keyword">Marinade<span class="wiki-tooltip">A seasoned liquid—typically containing an acid, oil, and aromatics—used to soak food to enhance flavor and tenderness.</span> </span>
+
+<span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span>
+
+<span class="wiki-keyword">tripe<span class="wiki-tooltip">The edible lining of the stomach of various farm animals, mainly cattle, characterized by its rubbery texture and honeycomb appearance.</span> </span>
+
+<span class="wiki-keyword">sliced<span class="wiki-tooltip">To cut food into thin, flat pieces of uniform thickness, ensuring even cooking and consistent presentation.</span> </span>
+
+<span class="wiki-keyword">Sear<span class="wiki-tooltip">To brown the surface of food quickly at a very high temperature to develop a complex, savory crust and deep flavor.</span> </span>
+
+<span class="wiki-keyword">Evaporates<span class="wiki-tooltip">The process where liquid turns into gas due to heat, reducing the volume of a dish while intensifying its flavors and thickness.</span> </span>
+
+<span class="wiki-keyword">simmer <span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span>
+
+<span class="wiki-keyword">Fry <span class="wiki-tooltip">To cook food in hot fat or oil, typically until it reaches a crisp, golden-brown texture.</span> </span>
+
+<span class="wiki-keyword">Sprinkle <span class="wiki-tooltip">To lightly and evenly scatter a small amount of a dry ingredient over the surface of food to enhance flavor or texture.</span> </span
+
+glossary
+
+
+Roux
+A mixture of fat and flour used as a thickening agent for sauces.
+
+Batter
+A liquid or semi-liquid mixture—typically consisting of flour, eggs, and milk—used to coat food before frying or as a base for baked goods.
+
+Whisk
+To beat ingredients together with a rapid, circular motion to incorporate air, remove lumps, or blend liquids into a smooth mixture.
+
+Air Fry
+To cook food by circulating extremely hot air at high speeds, creating a crispy exterior similar to deep-frying using little to no oil.
+
+Evaporates
+The process where liquid turns into gas due to heat, reducing the volume of a dish while intensifying its flavors and thickness.
+
+Sear
+To brown the surface of food quickly at a very high temperature to develop a complex, savory crust and deep flavor.
+
+sliced
+To cut food into thin, flat pieces of uniform thickness, ensuring even cooking and consistent presentation.
+
+tripe
+The edible lining of the stomach of various farm animals, mainly cattle, characterized by its rubbery texture and honeycomb appearance.
+
+Marinade
+A seasoned liquid—typically containing an acid, oil, and aromatics—used to soak food to enhance flavor and tenderness.
+
+Marinate
+To soak food in a seasoned liquid (acid, oil, and aromatics) to tenderize the texture and infuse deep flavor.
+
+
+Clumping
+The formation of dry, unmixed lumps in a liquid, often caused by adding powders too quickly or into a liquid that is too hot.
+
+Pan-fry
+To cook food in a skillet with a moderate amount of fat over medium-high heat, creating a crisp, browned crust.
+
+simmered 
+Cooked gently in liquid just below the boiling point to soften and absorb flavors.
+
+Fry 
+To cook food in hot fat or oil, typically until it reaches a crisp, golden-brown texture.
+
+Sauté
+To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.
+
+Steamed
+Cooked using the heat of water vapor, typically in a sealed container or over a boiling pot, to maintain moisture and nutrients.
+
+Marinate
+To soak food in a seasoned liquid (acid, oil, and aromatics) to tenderize the texture and infuse deep flavor
+

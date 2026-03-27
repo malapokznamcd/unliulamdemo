@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pork Nilaga | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                            url('assets/porkNilaga.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(16)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+</div>  
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(9)">
+        <div class="card-img1"><img class="food-photo1" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+        <div class="card-content1">
+            <span class="tag">30 MINS</span>
+            <h3>Chicken Sotanghon Soup with Patola</h3>
+            <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+        </div>
+    </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Pork Nilaga</h1>
+        <p id="recipe-description">A classic Filipino boiled pork soup that is both comforting and nutritious. This version features tender pork belly simmered in a clear, flavorful broth with potatoes, saba bananas, and pechay, making it the perfect meal for cold or rainy days.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/porkNilaga.jpg" alt="Filipino Pork Nilaga" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Hearty pork belly and fresh vegetables in a warm, savory clear broth.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1 HR 5 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">5 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>2 lbs. pork belly, cut into cubes</li>
+                <li>1 Knorr Pork Cube</li>
+                <li>3 to 4 small potatoes, peeled and halved</li>
+                <li>2 pieces ripe saba banana, sliced</li>
+                <li>6 to 8 ounces pechay (or bok choy)</li>
+                <li>1 medium yellow onion, sliced</li>
+                <li>6 to 7 cups water</li>
+                <li>1 tablespoon whole peppercorn</li>
+                <li>2 to 3 tablespoons fish sauce</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Pork</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Pour water in a cooking pot. Let it boil. Add the onion and whole peppercorns, then continue to boil until the onion becomes tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Put the pork belly into the cooking pot. Once the water re-boils, add the Knorr Pork Cube and stir well.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Cover the pot and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> on low heat for 45 to 60 minutes, or until the pork becomes tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add the potatoes and saba bananas. Cook for 5 to 7 minutes until tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Stir in the fish sauce and pechay. Cook for another 3 to 5 minutes. Transfer to a bowl and serve hot with fish sauce and chili on the side!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #34495e;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">The Warmth of Filipino Home Cooking</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Nilaga</strong>, which literally means "boiled," is the ultimate comfort food in the Philippines. While it seems effortless, the secret lies in simmering the meat until it is melt-in-your-mouth tender, allowing the natural juices to meld with the sweetness of saba bananas and the earthiness of the vegetables.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> The Saba Secret</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Adding ripe saba bananas (plantains) provides a unique, subtle sweetness to the broth that balances the savory saltiness of the fish sauce.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Low and Slow</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Always cook the meat on low heat once boiling. This prevents the broth from becoming cloudy and ensures the pork stays juicy rather than tough.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Best Served With...</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Nilaga is best enjoyed with a side of "patis" (fish sauce) and calamansi or siling labuyo for an extra kick of flavor.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Lana <span class="review-date">January 26, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>Thanks for the recipe! This is our dinner tonight. I love how simple and clear the instructions are. Perfect for a rainy day!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Palabok | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/palabok.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(17)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sarciado.jpg" alt="sarciado"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Fish Sarciado</h3>
+                    <p>Fried fish simmered in a savory tomato and egg sauce.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(19)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content1">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(12)">
+        <div class="card-img1"><img class="food-photo1" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+        <div class="card-content1">
+            <span class="tag">40 MINS</span>
+            <h3>Kinamatisang Manok</h3>
+            <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+        </div>
+    </div>
+</div>    
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Easy Palabok</h1>
+        <p id="recipe-description">This Easy Palabok is as simple as it can get but delivers a delicious, authentic result. It features thin rice noodles topped with a rich, savory golden sauce flavored with smoked fish and shrimp, finished with classic Filipino garnishes like crushed chicharon and toasted garlic.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/palabok.jpg" alt="Pancit Palabok" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Golden rice noodles smothered in a rich shrimp and smoked fish sauce.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">30 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">3 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>8 oz. bihon (rice sticks)</li>
+                <li>3/4 cup ground pork</li>
+                <li>12 pieces cooked shrimp</li>
+                <li>1/4 cup tinapa (smoked fish) flakes</li>
+                <li>2 cups annatto water</li>
+                <li>1/4 cup all-purpose flour</li>
+                <li>1 piece Knorr Shrimp Cube</li>
+                <li>1/4 cup crushed chicharon</li>
+                <li>1/4 cup toasted garlic</li>
+                <li>2 boiled eggs, sliced</li>
+                <li>Patis and white pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Noodles</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Arrange bihon in a deep tray. Pour hot water until submerged and soak for 12-15 minutes. Drain and set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Heat oil and <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over medium-high heat.</span></span> garlic and onion. Add ground pork and cook until light brown.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add tinapa flakes. Gradually add flour and cook while stirring for 5 minutes over low to medium heat to create a <span class="wiki-keyword">Roux<span class="wiki-tooltip">A mixture of fat and flour used as a thickening agent for sauces.</span></span>.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Gradually pour in annatto water. Stir constantly until the sauce reaches a smooth, thick consistency.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Melt in the shrimp cube. Season with patis and pepper. Pour over the bihon and top with shrimp, chicharon, eggs, and garlic.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #fffaf0; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #ffa500;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #d35400; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ffa500; display: inline-block; padding-bottom: 5px;">The Palabok Tradition</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            Pancit Palabok is named after the word "palabok," which refers to the colorful garnishes and the rich sauce layered over the noodles. This version is designed to resemble the popular style found in Filipino fast-food chains, prioritizing speed by using bihon noodles while maintaining the deep, smoky flavor of traditional tinapa.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #ffa500; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e67e22; margin-top: 0;">Smoky Secret</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Tinapa (smoked fish) flakes are the "soul" of the sauce. Without them, the dish loses its distinctive Filipino profile.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #ffa500; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e67e22; margin-top: 0;">Golden Hue</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The iconic orange color is derived naturally from Annatto seeds (Achuete), providing an earthy tone without synthetic dyes.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #ffa500; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e67e22; margin-top: 0;">The Topping Crunch</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">A perfect Palabok must have texture. The crunch of the chicharon and toasted garlic provides a vital contrast to the soft noodles.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 2</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Benilda S. <span class="review-date">February 6, 2020</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>Amazing easy recipe! Love it! The steps are very straightforward and the sauce is perfect.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

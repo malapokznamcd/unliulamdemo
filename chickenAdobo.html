@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Chicken Adobo | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/chickenAdobo.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(15)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkCaldereta.jpg" alt="Cheesy Pork Caldereta"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 10 MINS</span>
+                    <h3>Cheesy Pork Caldereta</h3>
+                    <p>Rich tomato pork stew thickened with liver spread and melted cheese.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(16)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+</div>    
+
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+<a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Filipino Chicken Adobo</h1>
+        <p id="recipe-description">The unofficial national dish of the Philippines. This iconic recipe features chicken marinated and simmered in a perfectly balanced mix of soy sauce, vinegar, garlic, and peppercorns for a savory, tangy, and slightly sweet flavor profile.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/chickenAdobo.jpg" alt="Classic Filipino Chicken Adobo" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Tender chicken pieces glazed in a rich, garlicky soy-vinegar sauce.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">40 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">4 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>2 lbs chicken, cut into serving pieces</li>
+                <li>3 pieces dried bay leaves</li>
+                <li>4 tbsp soy sauce</li>
+                <li>6 tbsp white vinegar</li>
+                <li>5 cloves garlic, crushed</li>
+                <li>1 ½ cups water</li>
+                <li>3 tbsp cooking oil</li>
+                <li>1 tsp sugar</li>
+                <li>¼ tsp salt</li>
+                <li>1 tsp whole peppercorn</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Chicken</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">In a large bowl, combine chicken, soy sauce, and garlic. Mix well and <span class="wiki-keyword">Marinate<span class="wiki-tooltip">To soak food in a seasoned liquid (acid, oil, and aromatics) to tenderize the texture and infuse deep flavor.</span> </span> for at least 1 hour (the longer, the better).</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Heat oil in a cooking pot. <span class="wiki-keyword">Pan-fry<span class="wiki-tooltip">To cook food in a skillet with a moderate amount of fat over medium-high heat, creating a crisp, browned crust.</span></span> the marinated chicken for 2 minutes per side until the skin is slightly browned.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Pour in the remaining <span class="wiki-keyword">Marinade<span class="wiki-tooltip">A seasoned liquid—typically containing an acid, oil, and aromatics—used to soak food to enhance flavor and tenderness.</span> </span> (including the garlic). Add water, dried bay leaves, and whole peppercorns. Bring to a boil.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Cover and simmer for 30 minutes or until the chicken is tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the vinegar. Stir and cook for another 10 minutes. Finally, stir in the sugar and salt. Serve hot with white rice!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #34495e;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">The Pride of the Philippines</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Adobo</strong> is more than just a recipe; it's a cooking method. Derived from the Spanish word <em>adobar</em> (to marinate), Filipinos have been using vinegar and salt to preserve meat long before Spanish colonization. Today, it is the most recognizable Filipino dish worldwide.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> The Vinegar Rule</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">A common tip is to never stir the vinegar immediately after pouring it in. Let it boil for a few minutes to "cook out" the raw harshness of the acid.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Better with Age</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Adobo is famous for tasting even better the next day! The vinegar acts as a preservative and the meat continues to absorb the flavors overnight.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Variations</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">While soy sauce is standard (Adobong Itim), some regions prefer "Adobong Puti" which uses only salt and vinegar for a cleaner, sharper taste.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 45</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Ricardo G. <span class="review-date">March 21, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>The perfect ratio of soy sauce and vinegar! I followed the tip about not stirring the vinegar right away, and it made the sauce much smoother. Truly a Pinoy classic.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

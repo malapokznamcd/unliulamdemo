@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancit Bihon Guisado | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/pancitBihon.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px; 
+            width: auto;   
+            display: block; 
+        }
+      
+    </style>
+</head>
+<body>
+
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(9)">
+        <div class="card-img1"><img class="food-photo1" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+        <div class="card-content1">
+            <span class="tag">30 MINS</span>
+            <h3>Chicken Sotanghon Soup with Patola</h3>
+            <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+        </div>
+    </div>
+    <div class="recipe-card1" onclick="loadRecipe(10)">
+        <div class="card-img1"><img class="food-photo1" src="assets/pininyahangManok.jpg" alt="Creamy Pininyahang Manok"></div>
+        <div class="card-content1">
+            <span class="tag">50 MINS</span>
+            <h3>Creamy Pininyahang Manok</h3>
+            <p>Creamy chicken stew with coconut milk and sweet pineapple.</p>
+        </div>
+    </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(16)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+</div>  
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Pancit Bihon Guisado</h1>
+        <p id="recipe-description">
+            A Filipino party staple! Pancit Bihon is a delicious stir-fried noodle dish made from thin rice sticks, 
+            tender pork, chicken, and a colorful array of crisp vegetables. It’s a savory, "conveniently cooked" 
+            meal that symbolizes long life and good health.
+        </p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/pancitBihon.jpg" alt="Pancit Bihon Guisado" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Savory stir-fried rice noodles packed with meat and fresh vegetables.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">40 MINS</span>
+            <span class="stat-label">Cooking Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Medium</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">8 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>1 lb pancit bihon (rice noodles)</li>
+                <li>1/2 lb pork (thinly sliced)</li>
+                <li>1/2 lb chicken (cooked and shredded)</li>
+                <li>1/8 lb snow peas</li>
+                <li>1 cup carrots (julienned)</li>
+                <li>1/2 small cabbage (chopped)</li>
+                <li>1 cup celery leaves (chopped)</li>
+                <li>5 tbsp soy sauce</li>
+                <li>2 tsp chicken powder</li>
+                <li>3-4 cups water</li>
+                <li>3 tbsp cooking oil</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Noodles</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Soak the bihon noodles in water for about 10 minutes. Meanwhile, <span class="wiki-keyword">sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic and onion in a large wok.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Add the pork and chicken. Cook for 2 minutes or until the meat is lightly browned.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Stir in chicken powder and water. <span class="wiki-keyword">Simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 15 minutes to let the meat flavors meld.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add carrots, snow peas, cabbage, and celery. <span class="wiki-keyword">Simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for a few minutes until tender, then remove the meat and veggies from the pot, leaving the liquid behind.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add soy sauce and soaked noodles to the liquid. Cook until the liquid <span class="wiki-keyword">Evaporates <span class="wiki-tooltip">The process where liquid turns into gas due to heat, reducing the volume of a dish while intensifying its flavors and thickness.</span> </span>. Mix the meat and veggies back in and serve with calamansi!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #fffaf0; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #f1c40f;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #7f8c8d; margin-bottom: 20px;">The Long-Life Noodle</h2>
+        <p style="line-height: 1.6; color: #555;">
+            Derived from the Hokkien word <em>"pian e sit"</em> (meaning something conveniently cooked), Pancit was introduced by Chinese immigrants. Over centuries, it became localized with Filipino ingredients like calamansi and local vegetables. <strong>Bihon</strong> specifically refers to the thin rice sticks used in this stir-fry.
+        </p>
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px;">
+                <h4 style="color: #f39c12; margin-top: 0;"> Don't Cut the Noodles</h4>
+                <p style="font-size: 14px; color: #666;">Superstition says you should never cut the noodles when cooking or serving, as long noodles represent a long and healthy life.</p>
+            </div>
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px;">
+                <h4 style="color: #f39c12; margin-top: 0;"> The Secret Squeeze</h4>
+                <p style="font-size: 14px; color: #666;">Pancit is incomplete without a side of fresh Calamansi. The citrus acidity cuts through the saltiness of the soy sauce perfectly.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">44 Reviews</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 44</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Ariane <span class="review-date">January 18, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This recipe was a huge SUCCESS! It’s simple, the ingredients are easy to find, and it tastes just like home. Perfect for birthday celebrations!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+            <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+            <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

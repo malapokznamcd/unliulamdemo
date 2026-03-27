@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheesy Pork Caldereta | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/porkCaldereta.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(2)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sinigang.jpg" alt="Sinigang na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Sinigang na Bangus</h3>
+                    <p>Authentic sour soup with fresh vegetables.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(20)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content1">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+</div> 
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(13)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkNilaga.jpg" alt="Pork Nilaga"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 5 MINS</span>
+                    <h3>Pork Nilaga</h3>
+                    <p>Hearty pork stew with vegetables in a clear, savory broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(11)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+                <div class="card-content1">
+                    <span class="tag">40 MINS</span>
+                    <h3>Filipino Chicken Adobo</h3>
+                    <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+                </div>
+            </div>
+</div>
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+            </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Cheesy Pork Caldereta</h1>
+        <p id="recipe-description">An upgraded Filipino classic using tender pork ribs simmered in a rich tomato sauce. This version is made extra special with the addition of creamy cheddar cheese and savory liver spread, creating a thick, velvety stew that's perfect with warm rice.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/porkCaldereta.jpg" alt="Cheesy Pork Caldereta" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Rich, meaty pork ribs blanketed in a savory, cheesy tomato gravy.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1 HR 10 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Medium</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">5 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>3 lbs. pork ribs (or shoulder/belly)</li>
+                <li>1/2 cup cheddar cheese, grated</li>
+                <li>1/4 cup liver spread</li>
+                <li>8 oz. tomato sauce</li>
+                <li>2 tbsp tomato paste</li>
+                <li>2 potatoes & 2 carrots, diced</li>
+                <li>1 red & 1 green bell pepper, sliced</li>
+                <li>3/4 cup green peas</li>
+                <li>1 Knorr Pork Cube</li>
+                <li>1 tsp Knorr Liquid Seasoning</li>
+                <li>3 tbsp soy sauce</li>
+                <li>1 onion, chopped & 4 cloves garlic, minced</li>
+                <li>4 cups water</li>
+                <li>Salt & black pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Pork</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Toss potatoes and carrots in salt and <span class="wiki-keyword">air fry<span class="wiki-tooltip">To cook food by circulating extremely hot air at high speeds, creating a crispy exterior similar to deep-frying using little to no oil.</span> </span> at 350°F for 12 mins. Boil pork in 2 cups water for 3 mins, then discard water and set meat aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text"><span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic and onion in oil. Add pork ribs and cook until light brown. Pour in soy sauce and sauté for 1 minute.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add tomato sauce and 2 cups water. Bring to a boil, then add the Pork Cube. Cover and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 45-60 mins until the pork is tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Stir in liver spread and tomato paste. Add the bell peppers, air-fried carrots, potatoes, and green peas. Cook for 2 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the cheese and liquid seasoning. Cook for 2 more minutes until cheese melts. Season with salt and pepper and serve!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #fff9f0; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #f39c12;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #d35400; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #f39c12; display: inline-block; padding-bottom: 5px;">A Royal Filipino Stew</h2>
+        <p style="line-height: 1.6; color: #5d4037; margin-bottom: 20px;">
+            The name <strong>Caldereta</strong> comes from the Spanish word <em>caldera</em>, meaning cauldron. Traditionally a goat meat stew, Filipinos have adapted it over the years to use beef, chicken, and pork. This "Cheesy" version reflects the Filipino love for rich, creamy textures, transforming a rustic stew into a decadent feast.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #f1c40f; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #f39c12; margin-top: 0;"> The Cheese Factor</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">Adding cheese doesn't just add flavor; it acts as a natural thickener, giving the sauce a velvety consistency that clings perfectly to the meat.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #e67e22; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #d35400; margin-top: 0;"> The Liver Spread Secret</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">The "secret" ingredient in authentic Caldereta is liver spread. It provides a deep, earthy umami base that balances the acidity of the tomatoes.</p>
+            </div>
+
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #27ae60; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #2ecc71; margin-top: 0;"> Air-Fried Crunch</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">Air-frying or pan-frying the potatoes and carrots beforehand prevents them from becoming mushy during the simmering process, keeping the textures distinct.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Chef Vanjo <span class="review-date">January 20, 2024</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>The salty quality of the cheese contrasts beautifully with the slight sweetness of the tomato sauce. Using pork ribs makes this dish even more filling and meaty!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

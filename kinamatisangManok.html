@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinamatisang Manok | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                            url('assets/kinamatisangManok.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<!-- LEFT SIDEBAR -->
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(15)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkCaldereta.jpg" alt="Cheesy Pork Caldereta"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 10 MINS</span>
+                    <h3>Cheesy Pork Caldereta</h3>
+                    <p>Rich tomato pork stew thickened with liver spread and melted cheese.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+
+<!-- RIGHT SIDEBAR -->
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(16)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+</div>
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Kinamatisang Manok</h1>
+        <p id="recipe-description">A comforting Filipino chicken stew where tender meat is simmered in a rich, vibrant tomato-based broth. This healthy and hearty dish balances the natural sweetness and acidity of fresh tomatoes with savory notes of fish sauce and ginger.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Tender chicken pieces submerged in a delightfully flavorful tomato stew.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">40 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">5 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>1 lb. chicken, cut into serving pieces</li>
+                <li>4 tomatoes, sliced into wedges</li>
+                <li>1 Knorr Chicken Cube</li>
+                <li>2 bunches bok choy</li>
+                <li>3 long green chili peppers</li>
+                <li>1 onion, sliced</li>
+                <li>3 thumbs ginger, crushed</li>
+                <li>3 cloves garlic, chopped</li>
+                <li>2 cups water</li>
+                <li>3 tablespoons cooking oil</li>
+                <li>Fish sauce and ground black pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Chicken</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Heat oil in a cooking pot. <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic until it starts to brown. Add onion and ginger and continue cooking until the onion softens.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Put the chicken pieces into the pot. Cook each side for 1 minute until lightly browned.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Stir-in half of the tomatoes. Cook for 2 minutes to release the juices.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Pour the water and let it boil. Add the Knorr Chicken Cube and 2 teaspoons of fish sauce. Cover and simmer on low for 20 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the remaining tomatoes, long green pepper, and bok choy. Cover and cook for a final 3 minutes. Season with black pepper and additional fish sauce as needed. Serve hot!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #34495e;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">The Golden Apple of Pinoy Cuisine</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Kinamatisang Manok</strong> (also known as Sarciadong Manok) highlights the versatility of the tomato. While traditionally associated with fish (Sarciadong Isda), using chicken transforms this into a hearty, protein-rich stew that is a staple in many Filipino households for its simplicity and nutritional value.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> The Two-Stage Tomato</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Adding tomatoes in two batches ensures that some melt into the broth for flavor, while others remain intact for texture and freshness.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Sarciado Heritage</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The name comes from "sarsa," meaning thick sauce. It is the Filipino equivalent of the Spanish salsa, but treated as a main braising liquid.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Vegetable Boost</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Bok choy and green chilies aren't just for flavor; they add essential vitamins and a mild kick that balances the tartness of the tomatoes.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">4.9</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 90%;"></div></div> 38</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 10%;"></div></div> 4</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Elena M. <span class="review-date">March 21, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This is so refreshing compared to the usual heavy stews! The combination of ginger and fresh tomatoes makes the broth so light yet flavorful. My kids loved the bok choy.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pata Humba (Braised Pork Hocks) | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                            url('assets/pataHumba.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(17)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sarciado.jpg" alt="sarciado"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Fish Sarciado</h3>
+                    <p>Fried fish simmered in a savory tomato and egg sauce.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(19)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content1">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(16)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/bicolExpress.jpg" alt="Bicol Express"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR</span>
+                    <h3>Bicol Express</h3>
+                    <p>Spicy pork stew simmered in creamy coconut milk and shrimp paste.</p>
+                </div>
+            </div>
+</div>  
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Pata Humba (Braised Pork Hocks)</h1>
+        <p id="recipe-description">A celebratory Visayan-style braised pork dish. Pork hocks are slowly simmered in a complex blend of soy sauce, vinegar, and pineapple juice until the meat is fall-off-the-bone tender. Accented with salted black beans, star anise, banana blossoms, and peanuts for a unique savory-sweet profile.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/pataHumba.jpg" alt="Pata Humba" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Rich, glossy pork hocks braised to perfection with traditional spices and peanuts.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1.5 - 2 HRS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Intermediate</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>4.5 lbs pork hocks, sliced</li>
+                <li>3 tbsp cooking oil</li>
+                <li>2 yellow onions, minced</li>
+                <li>8 cloves garlic, minced</li>
+                <li>2 tbsp salted black beans, rinsed</li>
+                <li>4 pieces star anise</li>
+                <li>3 pieces dried bay leaves</li>
+                <li>2 tsp whole peppercorns</li>
+                <li>1/2 cup soy sauce</li>
+                <li>3 tbsp vinegar</li>
+                <li>3 cups pineapple juice</li>
+                <li>1 cup water</li>
+                <li>1/2 cup brown sugar</li>
+                <li>1/4 cup dried banana blossoms (optional)</li>
+                <li>1/4 cup peanuts</li>
+                <li>5g Maggi Magic Sarap (optional)</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Pork</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Boil pork hocks for 10 minutes, rinse under cold water to remove impurities, and pat dry. Heat oil and fry hocks for 2 minutes per side until golden brown. Set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">In the same wok, <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic and onions until soft. Add salted black beans and mash them with your spoon to release flavor.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add star anise, bay leaves, and peppercorns. Sauté for 30 seconds, then pour in soy sauce, vinegar, pineapple juice, and water.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Return pork to the wok. Cover and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> on low heat for 1.5 to 2 hours until completely tender and the skin is jiggly.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add brown sugar, banana blossoms, and peanuts. <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 10 more minutes to thicken the sauce. Season with Magic Sarap and serve hot!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #34495e;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">A Visayan Heritage Dish</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Humba</strong> is a treasure of Visayan cuisine. While it shares ingredients with Adobo, it is distinguished by its sweeter profile and the addition of fermented black beans (tausi) and star anise. Historically, it was a way to preserve meat, but it has evolved into a centerpiece dish for town fiestas and family reunions.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> The Umami Mash</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Mashing the salted black beans directly into the oil ensures their deep umami flavor blends into the sauce rather than staying in whole, salty bursts.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Collagen is Key</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Pata (pork hock) is used because its high collagen content melts during the long braise, creating a naturally thick, glossy, and silky sauce.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2c3e50; margin-top: 0;"> Better with Time</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Like many Filipino stews, Pata Humba tastes even better the next day as the meat continues to absorb the caramel and spice notes from the sauce.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 4</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Ronald T. <span class="review-date">Sept 01, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>Very yummy recipe and easy to follow. The slow simmer really made the skin so tender. My family loved the peanuts and banana blossoms contrast!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

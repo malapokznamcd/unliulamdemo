@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sardines with Misua and Patola | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/misuaSardines.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<!-- LEFT SIDEBAR -->
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(13)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkNilaga.jpg" alt="Pork Nilaga"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 5 MINS</span>
+                    <h3>Pork Nilaga</h3>
+                    <p>Hearty pork stew with vegetables in a clear, savory broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(11)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+                <div class="card-content1">
+                    <span class="tag">40 MINS</span>
+                    <h3>Filipino Chicken Adobo</h3>
+                    <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+                </div>
+            </div>
+</div>
+
+<!-- RIGHT SIDEBAR -->
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(5)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/tinola.jpg" alt="Hearty Chicken Tinola" ></div>
+                <div class="card-content1">
+                    <span class="tag">60 MINS</span>
+                    <h3>Chicken Tinola</h3>
+                    <p>A soul-warming Filipino ginger chicken broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(18)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/paksiw.jpg" alt="Paksiw na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">35 MINS</span>
+                    <h3>Paksiw na Bangus</h3>
+                    <p>Milkfish stewed in a tangy vinegar and ginger broth.</p>
+                </div>
+            </div>
+</div>  
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Sardines with Misua and Patola</h1>
+        <p id="recipe-description">A nostalgic and budget-friendly Filipino soup that brings comfort during rainy days. This dish combines savory canned sardines in tomato sauce with delicate misua noodles and refreshing slices of patola (silk gourd). It is a quick, nutritious meal that proves simple ingredients can create a hearty family favorite.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Warm, savory soup perfect for cozy family dinners.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">12 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">4 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>4 oz. misua (thin wheat noodles)</li>
+                <li>15 oz. canned sardines in tomato sauce</li>
+                <li>1 medium patola, peeled and sliced</li>
+                <li>1/2 to 1 head garlic, crushed</li>
+                <li>1 medium onion, diced</li>
+                <li>1/2 cup green onions, chopped</li>
+                <li>3 tbsp cooking oil</li>
+                <li>4 to 5 cups water</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Fish</span>
+                    <span class="filter-tag">Noodles</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Heat oil in a soup pot. <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> the garlic until it turns medium brown, then add the onion and cook until translucent and soft.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Pour in the canned sardines (including the sauce) and stir gently. Cook for 2 minutes to let the flavors develop.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add the <span class="wiki-keyword">sliced<span class="wiki-tooltip">To cut food into thin, flat pieces of uniform thickness, ensuring even cooking and consistent presentation.</span> </span> patola and cook for 1 minute.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Pour in the water and bring to a boil. Lower the heat and let it <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 3 to 5 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add the misua noodles and cook for 2 minutes until tender. Season with salt and pepper, stir in green onions, and serve hot!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f4f7f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #3498db;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #3498db; display: inline-block; padding-bottom: 5px;">A Rainy Day Classic</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            Sardines with Misua is a beloved dish often associated with the rainy season in the Philippines. Because it uses pantry staples like canned sardines and dried noodles, it became the go-to meal during typhoons or brownouts when fresh market trips were difficult. Its ability to provide warmth and nutrition with minimal cooking time has made it a symbol of Filipino resilience and home-style comfort.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">The Garlic Factor</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">In Filipino cooking, a generous amount of garlic is essential for this soup. Sautéing the garlic until it is medium brown provides a deep, toasted aroma that cuts through the fishiness of the sardines.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">Misua Management</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Misua noodles are very delicate and thin. They absorb liquid quickly, so they are added last to prevent the soup from becoming too thick or the noodles from becoming mushy.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #2980b9; margin-top: 0;">Patola Substitutes</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">If patola is unavailable, many households use zucchini or chayote. These vegetables provide a similar mild sweetness and tender texture to the broth.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 7</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Vanjo M. <span class="review-date">February 16, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This recipe is a beloved dish from my childhood. It's quick and easy to make, and I fondly remember enjoying it in the Philippines during rainy days. It's incredibly satisfying and nutritious!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

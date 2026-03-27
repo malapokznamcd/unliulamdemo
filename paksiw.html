@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paksiw na Bangus | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/paksiw.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<!-- LEFT SIDEBAR -->
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(9)">
+        <div class="card-img1"><img class="food-photo1" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+        <div class="card-content1">
+            <span class="tag">30 MINS</span>
+            <h3>Chicken Sotanghon Soup with Patola</h3>
+            <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+        </div>
+    </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+
+<!-- RIGHT SIDEBAR -->
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(12)">
+        <div class="card-img1"><img class="food-photo1" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+        <div class="card-content1">
+            <span class="tag">40 MINS</span>
+            <h3>Kinamatisang Manok</h3>
+            <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+        </div>
+    </div>
+</div>    
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Paksiw na Bangus</h1>
+        <p id="recipe-description">A quintessential Filipino dish that celebrates bold, tangy flavors. Fresh milkfish (bangus) is gently stewed in a vinegar-based broth with ginger, garlic, and onions. This version is elevated with ampalaya (bitter melon) and eggplant, creating a perfectly balanced sour and savory meal.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/paksiw.jpg" alt="Paksiw na Bangus" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Tangy, ginger-infused milkfish stew with healthy vegetables.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">35 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>3 1/2 lbs. milkfish, sliced</li>
+                <li>3 oz. pork fat, chopped</li>
+                <li>1 1/4 cups white vinegar</li>
+                <li>2 cups water</li>
+                <li>5 thumbs ginger, sliced</li>
+                <li>1 head garlic, crushed</li>
+                <li>2 onions, sliced</li>
+                <li>2 Chinese eggplants, sliced</li>
+                <li>2 bitter melons (ampalaya), sliced</li>
+                <li>5 long green peppers</li>
+                <li>2 tsp whole peppercorns</li>
+                <li>Fish sauce to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Fish</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text"><span class="wiki-keyword">Sear<span class="wiki-tooltip">To brown the surface of food quickly at a very high temperature to develop a complex, savory crust and deep flavor.</span> </span> pork fat in a pan over medium heat until oil is extracted. Turn off heat and arrange garlic, ginger, onion, and peppercorns at the bottom of the pot.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Top the aromatics with the milkfish slices, eggplant, bitter melon, and long green peppers.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Pour in the vinegar. Turn heat back to medium, cover, and bring to a boil. Cook for 2 minutes to let the vinegar mellow.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add water and bring to a second boil. Reduce heat and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 15 minutes until the fish and vegetables are tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Season with fish sauce to taste. Transfer to a serving plate and enjoy with warm <span class="wiki-keyword">steamed<span class="wiki-tooltip">Cooked using the heat of water vapor, typically in a sealed container or over a boiling pot, to maintain moisture and nutrients.</span> </span> rice!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f7f9f7; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #27ae60;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #2ecc71; display: inline-block; padding-bottom: 5px;">A Tangy Tradition</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            Paksiw is a Filipino style of cooking whose name means to cook and simmer in vinegar. Historically, this method was used as a natural way to preserve food in the tropical heat of the Philippines. The vinegar's acidity prevents spoilage while infusing the meat or fish with a sharp, refreshing flavor that Filipinos have come to love over generations.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #2ecc71; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;">The Dagupan Choice</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">For the best Paksiw, many chefs prefer Dagupan Bangus. These are raised in brackish water and are prized for their thick, flavorful belly fat.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #2ecc71; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;">Vinegar Rule</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Traditional cooks advise not to stir the pot immediately after adding vinegar. Letting it boil undisturbed allows the harsh acidity to mellow out into a pleasant tang.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; border-top: 4px solid #2ecc71; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #27ae60; margin-top: 0;">Bitter Balance</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The addition of ampalaya (bitter melon) provides a contrast to the sour broth. To reduce bitterness, you can pre-soak the slices in salted water.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Vanjo M. <span class="review-date">April 1, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This bangus recipe is simple to make and requires just one pot! The vinegar gives the dish a tangy punch that is perfectly balanced by the warmth of the ginger and garlic. Even better as leftovers!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

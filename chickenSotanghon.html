@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Sotanghon Soup with Patola | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/chickenSotanghon.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(13)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkNilaga.jpg" alt="Pork Nilaga"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 5 MINS</span>
+                    <h3>Pork Nilaga</h3>
+                    <p>Hearty pork stew with vegetables in a clear, savory broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(11)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+                <div class="card-content1">
+                    <span class="tag">40 MINS</span>
+                    <h3>Filipino Chicken Adobo</h3>
+                    <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+                </div>
+            </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(5)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/tinola.jpg" alt="Hearty Chicken Tinola" ></div>
+                <div class="card-content1">
+                    <span class="tag">60 MINS</span>
+                    <h3>Chicken Tinola</h3>
+                    <p>A soul-warming Filipino ginger chicken broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(18)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/paksiw.jpg" alt="Paksiw na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">35 MINS</span>
+                    <h3>Paksiw na Bangus</h3>
+                    <p>Milkfish stewed in a tangy vinegar and ginger broth.</p>
+                </div>
+            </div>
+</div>  
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Chicken Sotanghon Soup with Patola</h1>
+        <p id="recipe-description">A comforting Filipino noodle soup featuring tender chicken, silky mung bean vermicelli, and the subtle sweetness of patola (loofah). Perfect for rainy days or a cozy family meal.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon Soup with Patola" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Warm, savory, and soothing Filipino chicken noodle soup.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">30 MINS</span>
+            <span class="stat-label">Cooking Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>1 1/2 lbs chicken, cut into serving pieces</li>
+                <li>1 piece patola, peeled and sliced crosswise</li>
+                <li>5 oz sotanghon noodles</li>
+                <li>8 cloves garlic, chopped</li>
+                <li>1 piece onion, chopped</li>
+                <li>1 tbsp chicken powder</li>
+                <li>1.5 quarts water</li>
+                <li>3 tbsp annatto oil</li>
+                <li>1 tbsp roasted garlic (for topping)</li>
+                <li>2 tbsp green onions, chopped (for garnish)</li>
+                <li>Fish sauce and ground black pepper to taste</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Chicken</span>
+                    <span class="filter-tag">Noodles</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Heat annatto oil in a pot over medium heat. <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic until lightly golden, then add onion and cook until soft and fragrant.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Add chicken pieces and cook while stirring until they turn light brown on all sides to build flavor.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Pour in water and bring to a boil. Add chicken powder and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 20 minutes or until chicken is tender. Skim any foam for a clear broth.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add sotanghon noodles and cook for about 3 minutes, stirring gently to prevent <span class="wiki-keyword">Clumping <span class="wiki-tooltip">The formation of dry, unmixed lumps in a liquid, often caused by adding powders too quickly or into a liquid that is too hot.</span> </span></div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Add patola slices and cook for 2 minutes until tender but not mushy. Season with fish sauce and pepper. Top with roasted garlic and green onions. Enjoy!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #e74c3c;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">A Taste of Comfort</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Chicken Sotanghon Soup</strong> is a quintessential Filipino "comfort food." Unlike heavy stews, this soup is prized for its clear, clean broth and the slippery texture of mung bean vermicelli. The addition of <strong>Patola</strong> (Sponge Gourd) adds a natural, gentle sweetness that balances the savory chicken base.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> The Annatto Glow</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The iconic orange-yellow hue of the soup comes from annatto (atsuete) oil, which provides a mild earthy flavor and a warm, inviting color.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> "Glass" Noodles</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Sotanghon are often called glass noodles because they become completely translucent once cooked. They are excellent at absorbing the flavors of the broth.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #e74c3c; margin-top: 0;"> Rainy Day Staple</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">In the Philippines, this soup is the go-to remedy for the rainy season or when someone is feeling under the weather, thanks to its soothing properties.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">1 Review</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 1</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Juan D. <span class="review-date">October 31, 2025</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This soup feels like home in a bowl! The patola was perfectly tender and the annatto oil gives it such a beautiful color. My family loved it!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beef Kare-Kare | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/karekare.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(17)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sarciado.jpg" alt="sarciado"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Fish Sarciado</h3>
+                    <p>Fried fish simmered in a savory tomato and egg sauce.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(19)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/ukoyDulong.jpg" alt="Ukoy Dulong"></div>
+                <div class="card-content1">
+                    <span class="tag">20 MINS</span>
+                    <h3>Ukoy Dulong</h3>
+                    <p>Crispy Filipino fritters made with tiny silverfish and fresh vegetables.</p>
+                </div>
+            </div>
+</div>
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(2)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/sinigang.jpg" alt="Sinigang na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">30 MINS</span>
+                    <h3>Sinigang na Bangus</h3>
+                    <p>Authentic sour soup with fresh vegetables.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(20)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/misuaSardines.jpg" alt="Sardines with Misua and Patola"></div>
+                <div class="card-content1">
+                    <span class="tag">12 MINS</span>
+                    <h3>Sardines with Misua and Patola</h3>
+                    <p>Comforting noodle soup with canned sardines and sweet sponge gourd.</p>
+                </div>
+            </div>
+</div> 
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Kare-Kare (Beef Tripe)</h1>
+        <p id="recipe-description">A classic Filipino stew known for its thick, savory peanut sauce. This version uses tender beef tripe and a medley of vegetables, perfectly complemented by salty shrimp paste.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/karekare.jpg" alt="Authentic Beef Kare-Kare" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Rich and creamy peanut stew with beef tripe and vegetables.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1 HR 15 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Intermediate</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>2 lbs. beef tripe, sliced</li>
+                <li>1 piece Knorr Beef Cube</li>
+                <li>1 bunch baby bok choy</li>
+                <li>15 pieces snake beans (sitaw), cut 2" long</li>
+                <li>1 piece Chinese eggplant, sliced</li>
+                <li>1 ½ cups peanut (processed until smooth)</li>
+                <li>½ cup annatto seeds (atsuete)</li>
+                <li>1 piece onion, minced</li>
+                <li>5 cloves garlic, minced</li>
+                <li>1 ½ tablespoons glutinous rice flour</li>
+                <li>6 cups water</li>
+                <li>3 tablespoons cooking oil</li>
+                <li>Ground black pepper and bagoong alamang</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Beef</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Boil the <span class="wiki-keyword">tripe<span class="wiki-tooltip">The edible lining of the stomach of various farm animals, mainly cattle, characterized by its rubbery texture and honeycomb appearance.</span> </span> in 1 1/2 quarts of water for 1 hour or until tender. Discard the water and set the tripe aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Prepare annatto water by boiling annatto seeds in 1 1/2 cups water for 2 minutes. Strain and set the orange water aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Sauté garlic and onion in a pot. Add the tenderized tripe and cook for 1 minute.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Pour in the annatto water (strained) and remaining water. Add the Knorr Beef Cube and bring to a boil.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Stir in the peanut paste and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 8 minutes. Add the rice flour slurry (mixed with 1/4 cup water) to thicken the sauce.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-text">Add the eggplant and snake beans. Cook for 5 minutes. Finally, add the bok choy and cook for 1 minute. Season with pepper and serve with bagoong.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #e67e22;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">The Art of Kare-Kare</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Kare-Kare</strong> is a celebrated Filipino stew that dates back centuries. While its exact origins are a mix of Indian, Malay, and Moro influences, it has become a cornerstone of Filipino celebratory dining. Its signature thick peanut sauce and vibrant orange hue make it instantly recognizable.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d35400; margin-top: 0;"> Natural Color</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">The iconic orange color comes from annatto seeds (atsuete), a natural food coloring that adds a very subtle earthy flavor.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d35400; margin-top: 0;"> The Bagoong Factor</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Because the stew itself is traditionally prepared with little to no salt, the salty, fermented shrimp paste (bagoong) is essential to balance the richness of the peanuts.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d35400; margin-top: 0;"> Thickening Secret</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Toasted ground rice is the traditional thickener, though many modern recipes use glutinous rice flour or cornstarch for convenience.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">Panlasang Pinoy Standard</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div></div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div></div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div></div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div></div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div></div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Juan D. <span class="review-date">March 15, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>The tripe was so tender! Using the Knorr Beef Cube really enhanced the savory depth of the peanut sauce. Best served with lots of rice!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

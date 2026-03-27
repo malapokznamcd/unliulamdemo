@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicol Express | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/bicolExpress.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(9)">
+        <div class="card-img1"><img class="food-photo1" src="assets/chickenSotanghon.jpg" alt="Chicken Sotanghon"></div>
+        <div class="card-content1">
+            <span class="tag">30 MINS</span>
+            <h3>Chicken Sotanghon Soup with Patola</h3>
+            <p>A comforting Filipino glass noodle soup with tender chicken and sweet patola.</p>
+        </div>
+    </div>
+    <div class="recipe-card1" onclick="loadRecipe(14)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/pataHumba.jpg" alt="Pata Humba"></div>
+                <div class="card-content1">
+                    <span class="tag">1.5-2 HRS</span>
+                    <h3>Pata Humba (Braised Pork Hocks)</h3>
+                    <p>Sweet and savory braised pork hocks with salted black beans.</p>
+                </div>
+            </div>
+</div>
+
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(8)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/karekare.jpg" alt="Beef Kare-Kare"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 15 MINS</span>
+                    <h3>Beef Kare-Kare</h3>
+                    <p>A savory peanut stew with tender beef and crisp vegetables, served with salty shrimp paste.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(12)">
+        <div class="card-img1"><img class="food-photo1" src="assets/kinamatisangManok.jpg" alt="Kinamatisang Manok"></div>
+        <div class="card-content1">
+            <span class="tag">40 MINS</span>
+            <h3>Kinamatisang Manok</h3>
+            <p>Chicken stewed in a light, tangy broth of fresh, sautéed tomatoes.</p>
+        </div>
+    </div>
+</div>    
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Bicol Express</h1>
+        <p id="recipe-description">A creamy, savory, and spicy Filipino stew made from bite-sized pieces of pork <span class="wiki-keyword">simmered<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> in rich coconut milk and shrimp paste. Balanced with ginger and a generous amount of chili peppers, this dish is a bold explosion of flavors.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/bicolExpress.jpg" alt="Bicol Express" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Tender pork belly strips bathed in spicy, creamy coconut sauce.
+            </div>
+        </div>
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">1 HR</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>2 lbs. pork belly, sliced into strips</li>
+                <li>2 cups coconut milk</li>
+                <li>2 cups coconut cream</li>
+                <li>1/4 cup shrimp paste (bagoong alamang)</li>
+                <li>5 pieces <span class="wiki-keyword">Thai chili pepper<span class="wiki-tooltip">Regular red chili</span> </span>, chopped</li>
+                <li>2 pieces Serrano pepper, sliced</li>
+                <li>2 thumbs ginger, minced</li>
+                <li>1 piece onion, chopped</li>
+                <li>5 cloves garlic, crushed</li>
+                <li>8g Maggi Magic Sarap</li>
+                <li>1 cup water (optional)</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Pork</span>
+
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Combine pork, ginger, garlic, onion, Thai chili pepper, Serrano pepper, bagoong, and coconut milk in a pan. Mix well.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Cover the pan and turn the heat to medium. Once the mixture boils, adjust heat to low and simmer for 50 minutes until pork is tender. Add water if it dries out too much.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Add the coconut cream and more bagoong if needed. Season with Maggi Magic Sarap.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Continue cooking on low heat until the sauce reduces and thickens to your desired consistency.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Transfer to a serving bowl and enjoy hot with plenty of <span class="wiki-keyword">Steamed<span class="wiki-tooltip">Cooked using the heat of water vapor, typically in a sealed container or over a boiling pot, to maintain moisture and nutrients.</span> </span> white rice!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f4f9f4; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #27ae60;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #2ecc71; display: inline-block; padding-bottom: 5px;">Named After a Train</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            Despite its name, Bicol Express was popularized in Malate, Manila by Cely Kalaw in the 1960s. She drew inspiration from a Bicolano dish called <em>Gulay na Lada</em> but modified the heat levels. The name was inspired by the sound of the daily train headed from Manila to Naga—the Bicol Express.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #f39c12; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #e67e22; margin-top: 0;">The Bagoong Backbone</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">The shrimp paste is the primary source of salt and umami. It provides a savory depth that balances the natural sweetness of the coconut milk.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #e74c3c; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #c0392b; margin-top: 0;">Heat Management</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">Thai chili peppers are the source of the heat. If you prefer a milder version, you can remove the seeds or reduce the number of chilies used.</p>
+            </div>
+
+            <div class="trivia-card" style="background: #ffffff; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h4 style="color: #2980b9; margin-top: 0;">The Cream Finish</h4>
+                <p style="font-size: 14px; color: #7f8c8d; margin-bottom: 0;">Adding coconut cream toward the end of the cooking process ensures a richer, thicker sauce compared to using just coconut milk alone.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">5.0</p>
+            <div class="stars">★★★★★</div>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 100%;"></div></div> 4</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Kevin M. <span class="review-date">September 5, 2021</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>Yum! Absolutely delicious. Flavor overall is amazing. I used extra peppers because we love it hot, and the coconut milk made it so creamy!</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon"><img src="assets/facebookIcon1.png" alt="Facebook"></a>
+            <a  class="social-icon"><img src="assets/instagramIcon.png" alt="Instagram"></a>
+            <a  class="social-icon"><img src="assets/youtubeIcon.png" alt="Youtube"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

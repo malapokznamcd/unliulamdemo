@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creamy Pininyahang Manok | Unli-Ulam</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('assets/pininyahangManok.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;   
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+<div class="side-recipes side-left">
+    <div class="recipe-card1" onclick="loadRecipe(13)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/porkNilaga.jpg" alt="Pork Nilaga"></div>
+                <div class="card-content1">
+                    <span class="tag">1 HR 5 MINS</span>
+                    <h3>Pork Nilaga</h3>
+                    <p>Hearty pork stew with vegetables in a clear, savory broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(11)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/chickenAdobo.jpg" alt="Filipino Chicken Adobo"></div>
+                <div class="card-content1">
+                    <span class="tag">40 MINS</span>
+                    <h3>Filipino Chicken Adobo</h3>
+                    <p>Chicken slow-braised in a savory-tangy soy and vinegar glaze.</p>
+                </div>
+            </div>
+</div>
+
+<div class="side-recipes side-right">
+    <div class="recipe-card1" onclick="loadRecipe(5)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/tinola.jpg" alt="Hearty Chicken Tinola" ></div>
+                <div class="card-content1">
+                    <span class="tag">60 MINS</span>
+                    <h3>Chicken Tinola</h3>
+                    <p>A soul-warming Filipino ginger chicken broth.</p>
+                </div>
+            </div>
+    <div class="recipe-card1" onclick="loadRecipe(18)">
+                <div class="card-img1"><img class= "food-photo1" src="assets/paksiw.jpg" alt="Paksiw na Bangus"></div>
+                <div class="card-content1">
+                    <span class="tag">35 MINS</span>
+                    <h3>Paksiw na Bangus</h3>
+                    <p>Milkfish stewed in a tangy vinegar and ginger broth.</p>
+                </div>
+            </div>
+</div>  
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<div class="container" id="recipe-container">
+    <section class="recipe-header">
+        <h1 id="recipe-title">Creamy Pininyahang Manok</h1>
+        <p id="recipe-description">A festive yet comforting Filipino chicken stew. This dish features tender chicken pieces simmered in pineapple juice, finished with a rich and silky cream sauce that perfectly balances sweetness and savoriness.</p>
+
+        <div class="recipe-hero-image">
+            <img src="assets/pininyahangManok.jpg" alt="Creamy Pineapple Chicken" 
+            style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-top: 20px; display: block;">
+    
+            <div style="display: block; text-align: center; font-size: 14px; color: #888; margin-top: 8px; font-style: italic;">
+                Smooth and rich chicken stew with pineapple chunks and colorful bell peppers.
+            </div>
+        </div>
+
+    </section>
+
+    <section class="recipe-stats">
+        <div class="stat-item">
+            <span class="stat-value" id="cook-time">50 MINS</span>
+            <span class="stat-label">Total Time</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="difficulty">Easy</span>
+            <span class="stat-label">Difficulty</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="servings">4-6 People</span>
+            <span class="stat-label">Serves</span>
+        </div>
+    </section>
+
+    <div class="recipe-body">
+        <aside class="sidebar">
+            <h2>Ingredients</h2>
+            <ul class="ingredients-list" id="ingredients-list">
+                <li>2 lbs. chicken, cut into serving pieces</li>
+                <li>20 oz. canned pineapple chunks (reserve juice)</li>
+                <li>200 ml Carnation Everyday Creamer (or heavy cream)</li>
+                <li>2 medium potatoes, diced</li>
+                <li>2 medium carrots, cut into wedges</li>
+                <li>1 red bell pepper, sliced</li>
+                <li>1 green bell pepper, sliced</li>
+                <li>2 pieces tomatoes, chopped</li>
+                <li>1 piece onion, thinly sliced</li>
+                <li>2 tbsp garlic, minced</li>
+                <li>Fish sauce (patis) and pepper to taste</li>
+                <li>1 cup cooking oil (for frying/sautéing)</li>
+            </ul>
+
+            <div class="filter-widget">
+                <h3>Filter recipes by...</h3>
+                <div class="filter-tags">
+                    <span class="filter-tag">Chicken</span>
+                    <span class="filter-tag">Vegetable</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="instructions">
+            <h2>Cook</h2>
+            <div id="instructions-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Heat oil in a pan. <span class="wiki-keyword">Pan-fry<span class="wiki-tooltip">To cook food in a skillet with a moderate amount of fat over medium-high heat, creating a crisp, browned crust.</span></span> the potatoes and carrots until they start to brown on the edges. Remove from the pan and set aside.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Reduce oil to 3 tablespoons. <span class="wiki-keyword">Sauté<span class="wiki-tooltip">To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</span> </span> garlic, onion, and tomatoes until softened. Add the chicken and cook until light brown.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Pour in the reserved pineapple juice from the can and add the pineapple chunks. Cover and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 30 minutes until chicken is tender.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Add the bell peppers, fried potatoes, and carrots. <span class="wiki-keyword">Simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for another 3 to 5 minutes.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-text">Season with fish sauce and ground black pepper. Pour in the creamer (or cream), stir, and <span class="wiki-keyword">simmer<span class="wiki-tooltip">Cooked gently in liquid just below the boiling point to soften and absorb flavors.</span> </span> for 2 minutes. Serve hot!</div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<section class="recipe-history" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 12px; margin: 40px 0; border-left: 5px solid #f1c40f;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px; font-size: 24px; border-bottom: 2px solid #ddd; display: inline-block; padding-bottom: 5px;">A Tropical Classic</h2>
+        <p style="line-height: 1.6; color: #555; margin-bottom: 20px;">
+            <strong>Pininyahang Manok</strong> is a testament to the Filipino love for fruit-infused savory dishes. While the traditional version is often a light, clear stew, the "Creamy" variation has become a modern favorite for parties and gatherings, offering a more indulgent mouthfeel that pairs perfectly with steamed rice.
+        </p>
+
+        <div class="trivia-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d4ac0d; margin-top: 0;"> The Creaminess Secret</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Using a high-fat creamer or evaporated milk prevents the sauce from curdling when it reacts with the acidic pineapple juice.</p>
+            </div>
+            
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d4ac0d; margin-top: 0;"> Veggie Tip</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">Frying the potatoes and carrots beforehand prevents them from getting mushy and helps them hold their shape during the simmering process.</p>
+            </div>
+
+            <div class="trivia-card" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <h4 style="color: #d4ac0d; margin-top: 0;"> Variety Matters</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 0;">You can substitute the dairy with coconut milk (gata) for an even richer, more traditional tropical flavor profile.</p>
+            </div>
+        </div>
+    </div>
+</section>  
+
+<div class="reviews-section">
+    <div class="review-header-flex">
+        <h2>Reviews</h2>
+    </div>
+
+    <div class="rating-summary">
+        <div class="rating-score">
+            <p class="big-number">4.8</p>
+            <div class="stars">★★★★★</div>
+            <p style="font-size: 12px; color:#888;">15 Reviews</p>
+        </div>
+        <div class="rating-bars">
+            <div class="bar-row">5★ <div class="bar-outer"><div class="bar-inner" style="width: 85%;"></div></div> 13</div>
+            <div class="bar-row">4★ <div class="bar-outer"><div class="bar-inner" style="width: 15%;"></div></div> 2</div>
+            <div class="bar-row">3★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">2★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+            <div class="bar-row">1★ <div class="bar-outer"><div class="bar-inner" style="width: 0%;"></div></div> 0</div>
+        </div>
+    </div>
+
+    <div class="user-review">
+        <div class="user-name">Maria C. <span class="review-date">January 12, 2026</span></div>
+        <div class="stars" style="font-size: 14px; margin-bottom: 10px;">★★★★★</div>
+        <p>This is my kids' favorite! The sauce is so creamy and the pineapple adds a nice tang. It's very easy to follow even for a beginner like me.</p>
+    </div>
+</div>
+
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>

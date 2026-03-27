@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary | Unli-Ulam</title>
+    <link rel="icon" href="assets/logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+        :root {
+            --knorr-red: #E3001B;
+            --knorr-green: #008244;
+            --text-dark: #333;
+            --bg-light: #f4f4f4;
+            --white: #F9F9FB;
+            --footer-bg: #222;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                              url('assets/backgroundImageOne.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px); 
+            transform: scale(1.1);
+            z-index: -1;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 15px 10%;
+            border-bottom: 4px solid var(--knorr-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img { height: 50px; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover { color: var(--knorr-green); }
+
+        .hero-banner {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 
+                         0 0 20px rgba(0, 0, 0, 0.3); 
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1); 
+            -webkit-backdrop-filter: blur(12px);  
+            padding: 40px;                         
+            border-radius: 20px;                  
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .hero-banner h1 { font-size: 50px; margin: 0; text-transform: uppercase; }
+
+        .glossary-container {
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1); 
+            -webkit-backdrop-filter: blur(12px);  
+            border-radius: 20px;                  
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .term-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--knorr-green);
+            transition: 0.3s;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--knorr-red);
+        }
+
+        .term-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--knorr-green);
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+
+        .term-card p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #ccc;
+            background: rgba(0,0,0,0.8);
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="assets/logo1.png" alt="Unli Ulam logo">
+    </div>
+    
+    <div class="search-container">
+        <div class="search-wrapper">
+            <img src="assets/searchIcon.png" alt="Search" class="search-img">
+            <input 
+                type="text" 
+                id="recipe-search" 
+                placeholder="Search recipes..." 
+                autocomplete="off"
+                aria-label="Search recipes"
+            >
+        </div>
+        <div class="search-results" id="search-results">
+        </div>
+    </div>
+    
+    <nav>
+        <a href="main.html">HOME</a>
+        <a href="recipe.html">RECIPES</a>
+        <a href="aboutUs.html">ABOUT US</a>
+    </nav>
+</header>
+
+<section class="hero-banner">
+    <h1>Kitchen Glossary</h1>
+    <p>Master the language of the Unli-Ulam kitchen.</p>
+</section>
+
+<main class="glossary-container">
+    <div class="glossary-grid">
+        <div class="term-card">
+            <h3>Air Fry</h3>
+            <p>To cook food by circulating extremely hot air at high speeds, creating a crispy exterior similar to deep-frying using little to no oil.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Batter</h3>
+            <p>A liquid or semi-liquid mixture—typically consisting of flour, eggs, and milk—used to coat food before frying or as a base for baked goods.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Clumping</h3>
+            <p>The formation of dry, unmixed lumps in a liquid, often caused by adding powders too quickly or into a liquid that is too hot.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Evaporates</h3>
+            <p>The process where liquid turns into gas due to heat, reducing the volume of a dish while intensifying its flavors and thickness.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Fry</h3>
+            <p>To cook food in hot fat or oil, typically until it reaches a crisp, golden-brown texture.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Marinade</h3>
+            <p>A seasoned liquid—typically containing an acid, oil, and aromatics—used to soak food to enhance flavor and tenderness.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Marinate</h3>
+            <p>To soak food in a seasoned liquid (acid, oil, and aromatics) to tenderize the texture and infuse deep flavor.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Pan-fry</h3>
+            <p>To cook food in a skillet with a moderate amount of fat over medium-high heat, creating a crisp, browned crust.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Roux</h3>
+            <p>A mixture of fat and flour used as a thickening agent for sauces.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Sauté</h3>
+            <p>To cook food quickly in a minimal amount of fat over relatively high heat, frequently tossing or stirring.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Sear</h3>
+            <p>To brown the surface of food quickly at a very high temperature to develop a complex, savory crust and deep flavor.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Simmered</h3>
+            <p>Cooked gently in liquid just below the boiling point to soften and absorb flavors.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Sliced</h3>
+            <p>To cut food into thin, flat pieces of uniform thickness, ensuring even cooking and consistent presentation.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Steamed</h3>
+            <p>Cooked using the heat of water vapor, typically in a sealed container or over a boiling pot, to maintain moisture and nutrients.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Tripe</h3>
+            <p>The edible lining of the stomach of various farm animals, mainly cattle, characterized by its rubbery texture and honeycomb appearance.</p>
+        </div>
+
+        <div class="term-card">
+            <h3>Whisk</h3>
+            <p>To beat ingredients together with a rapid, circular motion to incorporate air, remove lumps, or blend liquids into a smooth mixture.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="recipe.html">All Recipes</a>
+            <a href="glossary.html">Glossary of Terms</a>
+        </div>
+        <div class="footer-col">
+            <h4>Help</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="https://panlasangpinoy.com/">References</a>
+            <a href="aboutUs.html">About Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <a  class="social-icon">
+                <img src="assets/facebookIcon1.png" alt="Facebook">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/instagramIcon.png" alt="Instagram">
+            </a>
+            <a  class="social-icon">
+                <img src="assets/youtubeIcon.png" alt="Youtube">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2026 Unli-Ulam | Simple. Pinoy. Masarap.
+    </div>
+</footer>
+</footer>
+
+<script src="data.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
